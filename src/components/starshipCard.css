@@ -1,0 +1,53 @@
+.starship-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.starship-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.starship-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.starship-card p {
+  margin: 5px 0;
+}
+
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.quantity-controls span {
+  margin: 0 10px;
+}
+
+.buy-button {
+  background-color: #0073e6;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.buy-button:hover {
+  background-color: #005bb5;
+}
+
+@media (max-width: 600px) {
+  .starship-card {
+    width: 100%;
+  }
+}

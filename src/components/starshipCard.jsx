@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { starShips } from "../starwarzApi";
-import StarshipCardItem from "./StarshipCardItem";
+import StarshipCardItem from "./starshipCardItem";
 import { Loading } from "@carbon/react";
 
 const StarshipCard = () => {

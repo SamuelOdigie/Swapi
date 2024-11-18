@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import { starShips } from "../starwarzApi";
 import StarshipCardItem from "./StarshipCardItem";
+import { Loading } from "@carbon/react";
 
 const StarshipCard = () => {
   const [starships, setStarships] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchStarships = async () => {
+      setLoading(true);
       const fetchedStarships = await starShips();
       setStarships(fetchedStarships);
+      setLoading(false);
     };
 
     fetchStarships();
@@ -16,9 +20,13 @@ const StarshipCard = () => {
 
   return (
     <div className="starship-cards-container">
-      {starships.map((starship, index) => (
-        <StarshipCardItem key={index} starship={starship} />
-      ))}
+      {loading ? (
+        <Loading />
+      ) : (
+        starships.map((starship, index) => (
+          <StarshipCardItem key={index} starship={starship} />
+        ))
+      )}
     </div>
   );
 };

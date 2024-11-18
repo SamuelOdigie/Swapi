@@ -10,23 +10,21 @@ const StarshipCard = () => {
   useEffect(() => {
     const fetchStarships = async () => {
       setLoading(true);
-      const fetchedStarships = await starShips();
-      setStarships(fetchedStarships);
+      const data = await starShips();
+      setStarships(data);
       setLoading(false);
     };
 
     fetchStarships();
   }, []);
 
+  if (loading) return <Loading />;
+
   return (
     <div className="starship-cards-container">
-      {loading ? (
-        <Loading />
-      ) : (
-        starships.map((starship, index) => (
-          <StarshipCardItem key={index} starship={starship} />
-        ))
-      )}
+      {starships.map((starship, index) => (
+        <StarshipCardItem key={index} starship={starship} />
+      ))}
     </div>
   );
 };
